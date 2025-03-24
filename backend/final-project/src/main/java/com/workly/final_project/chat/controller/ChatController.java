@@ -99,9 +99,6 @@ public class ChatController {
 
 		    Object participantsObj = requestData.get("participants");
 
-		    System.out.println("✅ 받은 roomTitle: " + roomTitle);
-		    System.out.println("✅ 받은 chatType: " + chatType);
-		    System.out.println("✅ participants 원본 데이터: " + participantsObj);
 
 		    if (!(participantsObj instanceof List)) {
 		        return ResponseEntity.badRequest().body("❌ participants 값이 리스트가 아닙니다.");
@@ -148,7 +145,7 @@ public class ChatController {
 		    return ResponseEntity.ok(departments);
 		}
  
-		// userChat 마지막으로 읽은 번호 업데이트 
+		// userChat 마지막으로 읽은 번호 업데이트 (REST API) - 안읽음 수 구현
 		@PutMapping("/updateStatus/{chatRoomNo}/{userNo}")
 		public ResponseEntity<?> updateUserChatStatus(@PathVariable int chatRoomNo, @PathVariable int userNo) {
 		    try {
@@ -159,7 +156,7 @@ public class ChatController {
 		    }
 		}
 		
-		// 다른 채팅방으로 이동시
+		// 다른 채팅방으로 이동시 (REST API) - 안읽음 수 구현
 		@PostMapping("/leave/{chatRoomNo}/{userNo}")
 		public ResponseEntity<?> leaveChatRoom(@PathVariable int chatRoomNo, @PathVariable int userNo) {
 		    log.info("🚪 [API] 채팅방 이동 요청 - userNo: {}, chatRoomNo: {}", userNo, chatRoomNo);
@@ -167,7 +164,7 @@ public class ChatController {
 		    return ResponseEntity.ok().build();
 		}
 		
-		// 새로운 API (lastReadChatNo가 포함된 경우)
+		// (lastReadChatNo가 포함된 경우)
 		@PutMapping("/updateStatusWithRead/{chatRoomNo}/{userNo}/{lastReadChatNo}")
 		public ResponseEntity<Void> updateUserChatStatusWithRead(
 		    @PathVariable int chatRoomNo, 

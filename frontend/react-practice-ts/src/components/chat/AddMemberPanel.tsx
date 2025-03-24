@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import SearchClick from './SearchClick';
 import { useDispatch, useSelector } from "react-redux";
 import { setMemberInvite } from "../../features/chatSlice";
 import { RootState } from "../../store";
@@ -27,7 +26,7 @@ const AddMemberPanel = ({
   // 전체 사원 목록 상태
   const [allEmployees, setAllEmployees] = useState<Member[]>([]);
   const dispatch = useDispatch();
-  const memberInvite = useSelector((state: RootState) => state.chat.memberInvite);
+  //const memberInvite = useSelector((state: RootState) => state.chat.memberInvite);
 
   // 백엔드에서 전체 사원 목록 불러오기
   useEffect(() => {

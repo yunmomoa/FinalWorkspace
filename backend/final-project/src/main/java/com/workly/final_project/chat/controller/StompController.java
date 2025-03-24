@@ -32,7 +32,7 @@ public class StompController {
     // 채팅 메세지 저장 및 전송 + 알림
     @MessageMapping("/chat/sendMessage/{chatRoomNo}")
     public void sendMessage(@DestinationVariable int chatRoomNo, @Payload Chat chat) {
-        log.info(":말풍선: [WebSocket] 메시지 수신: roomNo={}, message={}",chatRoomNo, chat);
+        log.info(":말풍선: [WebSocket] 메시지 수신: roomNo={}, message={}", chatRoomNo, chat);
         try {
             chatService.saveChatMessage(chat);
             log.info(":흰색_확인_표시: [DB 저장 완료] 저장된 메시지: {}", chat);
@@ -43,21 +43,19 @@ public class StompController {
         // 기존 채팅 메시지 전송 (실시간 반영)
         messagingTemplate.convertAndSend("/sub/chatRoom/" + chatRoomNo, chat);
         
-        // 추가: 알림 전송
+        // 알림 전송: 해당 채팅방에 있지 않은 사용자들에게만 알림 전송 (읽음 업데이트는 하지 않음)
         List<Integer> unreadUserNos = chatService.getUnreadUserList(chatRoomNo, chat.getChatNo());
-     // 서버 측 로그 추가
         log.info("알림 전송 대상: " + unreadUserNos);
         for (Integer userNo : unreadUserNos) {
             Map<String, String> notif = new HashMap<>();
-            notif.put("message", "새 메시지가 도착했습니다 in room " + chatRoomNo);
+            notif.put("message", "새 메시지가 도착했습니다.");
+            notif.put("chatRoomNo", String.valueOf(chatRoomNo));
             messagingTemplate.convertAndSendToUser(String.valueOf(userNo), "/queue/notifications", notif);
             log.info("알림 전송: " + userNo);
         }
-
-
     }
-    
-    
+
+
  // NoticeChat 기본 채팅방 (chatRoomNo = 0) 실시간 메시지 처리 
     @MessageMapping("/noticeChat/sendMessage")
     public void sendNoticeChatMessage(@Payload Chat chat) {

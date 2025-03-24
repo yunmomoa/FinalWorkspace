@@ -82,26 +82,27 @@ public class ChatServiceImpl implements ChatService {
     @Transactional
     public int saveChatMessage(Chat chat) {
         log.info("🟢 채팅 저장 요청: {}", chat);
-
+        
+        // 채팅 메시지 저장
         chatDao.saveChatMessage(chat);
         log.info("✅ 채팅 저장 완료. chatNo: {}", chat.getChatNo());
 
-        // ✅ 메시지를 보낸 사용자의 USER_CHAT 업데이트
+        // 보내는 사용자의 USER_CHAT 업데이트 (자신은 보낸 메시지는 읽은 상태로 처리)
         UserChat senderUserChat = chatDao.getUserChat(chat.getChatRoomNo(), chat.getUserNo());
 
         if (senderUserChat == null) {
-            // ✅ USER_CHAT이 존재하지 않으면 새로 삽입
+            // 기존 USER_CHAT이 없으면 새로 삽입
             chatDao.insertUserChat(new UserChat(chat.getUserNo(), chat.getChatRoomNo(), chat.getChatNo()));
             log.info("🔹 [Chat Send] 새로운 USER_CHAT 삽입 (lastReadChatNo: {})", chat.getChatNo());
         } else {
-            // ✅ 보낸 사람의 LAST_READ_CHAT_NO 갱신
+            // 기존 USER_CHAT이 있으면 lastReadChatNo 업데이트
             senderUserChat.setLastReadChatNo(chat.getChatNo());
             chatDao.updateUserChat(senderUserChat);
-            log.info("🔹 [Chat Send] 보낸 사람의 USER_CHAT 업데이트 (lastReadChatNo: {})", chat.getChatNo());
+            log.info("🔹 [Chat Send] 보낸 사용자의 USER_CHAT 업데이트 (lastReadChatNo: {})", chat.getChatNo());
         }
-
         return chat.getChatNo();
     }
+
 
 
 
@@ -117,27 +118,12 @@ public class ChatServiceImpl implements ChatService {
         return chatDao.getUserNosByChatRoom(chatRoomNo);
     }
 
-//    @Override
-//    public void insertOrUpdateUserChat(UserChat userChat) {
-//        chatDao.insertOrUpdateUserChat(userChat);
-//    }
 
     @Override
     public int getLastReadChatNo(int userNo, int chatRoomNo) {
         Integer lastReadChatNo = chatDao.getLastReadChatNo(userNo, chatRoomNo);
         return (lastReadChatNo != null) ? lastReadChatNo : 0;
         
-//      UserChat userChat = new UserChat();
-//      userChat.setChatRoomNo(chat.getChatRoomNo());
-//      userChat.setUserNo(chat.getUserNo());
-//      userChat.setLastReadChatNo(chat.getChatNo());
-//
-//      UserChat existingUserChat = chatDao.getUserChat(userChat.getChatRoomNo(), userChat.getUserNo());
-//      if (existingUserChat == null) {
-//          chatDao.insertUserChat(userChat);
-//      } else {
-//          chatDao.updateUserChat(userChat);
-//      }
     }
 
     @Override

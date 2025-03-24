@@ -42,7 +42,7 @@ import OrganizationChartPage from "./pages/OrganizationChartPage";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { loginUser } from "./features/userSlice";
-
+import ChatNotificationManager from "./components/chat/ChatNotificationManager";
 
 
 function App() {
@@ -64,6 +64,9 @@ function App() {
 
   return (
     <div>
+
+      {/* 채팅 알림 전역 관리: 채팅 모달이 닫혀 있어도 계속 활성화 */}
+      <ChatNotificationManager userNo={userNo} />
 
       {/* 전자결재 알림 모달 (모든 페이지에서 표시) */}
       <NotificationModal />
