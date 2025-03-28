@@ -16,10 +16,11 @@ services:
   frontend:
     container_name: react-frontend
     build:
-      context: ./frontend
-      dockerfile: react-practice-ts/Dockerfile
+      context: ./frontend/react-practice-ts
+      dockerfile: Dockerfile
     ports:
       - "5173:5173"
+
 
 
   oracle:
