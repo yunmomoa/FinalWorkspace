@@ -3,7 +3,7 @@ version: "3.8"
 services:
   backend:
     image: final-project:latest
-    container_name: final-project
+    container_name: final-project-new
     ports:
       - "8003:8003"
     environment:
