@@ -12,12 +12,15 @@ services:
       SPRING_DATASOURCE_PASSWORD: oracle
     depends_on:
       - oracle
-
+      
   frontend:
     container_name: react-frontend
-    build: ./frontend/react-practice-ts
+    build:
+      context: ./frontend
+      dockerfile: react-practice-ts/Dockerfile
     ports:
       - "5173:5173"
+
 
   oracle:
     image: oracleinanutshell/oracle-xe-11g
