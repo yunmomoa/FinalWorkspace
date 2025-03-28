@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  backend:
+    image: final-project:latest
+    container_name: final-project
+    ports:
+      - "8003:8003"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle-xe:1521:XE
+      SPRING_DATASOURCE_USERNAME: DOCKER_ORACLE
+      SPRING_DATASOURCE_PASSWORD: oracle
+    depends_on:
+      - oracle
+
+  frontend:
+    image: mjmj7676/react-practice-ts:latest
+    container_name: react-frontend
+    ports:
+      - "5173:5173"
+
+  oracle:
+    image: oracleinanutshell/oracle-xe-11g
+    container_name: oracle-xe
+    ports:
+      - "1521:1521"
+      - "8080:8080"
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+      ORACLE_DISABLE_ASYNCH_IO: "true"
