@@ -25,10 +25,10 @@ services:
 
   oracle:
     image: oracleinanutshell/oracle-xe-11g
-    container_name: oracle-xe
+    container_name: oracle-xe-new
     ports:
       - "1521:1521"
-      - "8080:8080"
+      - "8081:8080"  
     environment:
       ORACLE_ALLOW_REMOTE: "true"
       ORACLE_DISABLE_ASYNCH_IO: "true"
