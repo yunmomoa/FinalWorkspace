@@ -25,7 +25,7 @@ services:
 
   oracle:
     image: oracleinanutshell/oracle-xe-11g
-    container_name: oracle-xe-new
+    container_name: oracle-xe-22
     ports:
       - "1521:1521"
       - "8081:8080"  
