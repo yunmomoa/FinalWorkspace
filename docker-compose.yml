@@ -14,7 +14,8 @@ services:
       - oracle
 
   frontend:
-    image: mjmj7676/react-practice-ts:latest
+    context: ./frontend/react-practice-ts
+    dockerfile: Dockerfile
     container_name: react-frontend
     ports:
       - "5173:5173"
