@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -40,4 +41,16 @@ public class WebConfig implements WebMvcConfigurer {
         .addResourceLocations("file:C:/upload/");
 
     }
+    
+    
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        // /workly, /workly/ 로 들어오는 요청을 index.html로
+//        registry.addViewController("/workly").setViewName("forward:/index.html");
+//        registry.addViewController("/workly/").setViewName("forward:/index.html");
+//
+//        // React Router를 쓰고 있으면, /workly/abc 같은 경로도 index.html로 포워딩
+//        registry.addViewController("/workly/**").setViewName("forward:/index.html");
+//    }
+
 }
