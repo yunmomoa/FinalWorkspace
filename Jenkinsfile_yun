@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'Yunseong-2', url:"${strGitUrl}"
+                git branch: 'main', url:"${strGitUrl}"
             }
         }
         stage('Build') {
