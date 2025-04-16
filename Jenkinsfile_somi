@@ -6,7 +6,7 @@ pipeline {
     agent any
     environment {
         strDockerTag = "${TODAY}_${BUILD_ID}"
-        strDockerImage ="pcotton2/Workly:${strDockerTag}"
+        strDockerImage ="pcotton2/workly:${strDockerTag}"
         //strGitUrl = "https://github.com/wombathero999/semi.git"
         strGitUrl = "https://github.com/yunmomoa/FinalWorkspace.git"
     }
