@@ -45,21 +45,9 @@ pipeline {
         // 오라클 접속시 필요한 환경변수가 더 있을 수 있음. 
         stage('Deploy') {
             steps {
-                bat '''
-                    ssh -o StrictHostKeyChecking=no ec2-user@3.39.190.162 << 'ENDSSH'
-                        docker container rm -f workly || true
-                        docker container run \
-                            -d \
-                            -p 8003:8003 \
-                            --name=workly \
-                            -e ORACLE_IP=3.39.190.162 \
-                            -e ORACLE_PORT=1521 \
-                            -e ORACLE_SID=XE \
-                            -e ORACLE_USER=C##FINAL \
-                            -e ORACLE_PASSWORD=final \
-                            ${strDockerImage}
-                    ENDSSH
-                '''
+                bat """
+                    ssh -o StrictHostKeyChecking=no ec2-user@3.39.190.162 "docker container rm -f workly || true && docker run -d -p 8003:8003 --name=workly -e ORACLE_IP=3.39.190.162 -e ORACLE_PORT=1521 -e ORACLE_SID=XE -e ORACLE_USER=C##FINAL -e ORACLE_PASSWORD=final ${strDockerImage}"
+                """
             }
         }        
     }
