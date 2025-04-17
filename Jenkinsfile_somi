@@ -20,6 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    cd backend/final-project
                     ./mvnw clean package
                 '''
             }
@@ -45,17 +46,19 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    docker container rm -f workly || true
-                    docker container run \
-                        -d \
-                        -p 8003:8003 \
-                        --name=workly \
-                        -e ORACLE_IP=43.200.181.81 \
-                        -e ORACLE_PORT=1521 \
-                        -e ORACLE_SID=XE \
-                        -e ORACLE_USER=C##FINAL \
-                        -e ORACLE_PASSWORD=final \
-                        ${strDockerImage}
+                    ssh -o StrictHostKeyChecking=no ec2-user@3.39.190.162 << 'ENDSSH'
+                        docker container rm -f workly || true
+                        docker container run \
+                            -d \
+                            -p 8003:8003 \
+                            --name=workly \
+                            -e ORACLE_IP=3.39.190.162 \
+                            -e ORACLE_PORT=1521 \
+                            -e ORACLE_SID=XE \
+                            -e ORACLE_USER=C##FINAL \
+                            -e ORACLE_PASSWORD=final \
+                            ${strDockerImage}
+                    ENDSSH
                 '''
             }
         }        
