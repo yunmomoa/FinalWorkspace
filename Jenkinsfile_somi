@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '''
+                bat '''
                     cd backend/final-project
                     ./mvnw clean package
                 '''
@@ -45,7 +45,7 @@ pipeline {
         // 오라클 접속시 필요한 환경변수가 더 있을 수 있음. 
         stage('Deploy') {
             steps {
-                sh '''
+                bat '''
                     ssh -o StrictHostKeyChecking=no ec2-user@3.39.190.162 << 'ENDSSH'
                         docker container rm -f workly || true
                         docker container run \
