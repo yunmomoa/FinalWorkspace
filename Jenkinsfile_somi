@@ -34,12 +34,12 @@ pipeline {
         }
         stage('Docker Image Push') {
             steps {
-                script {
-                    // 본인 도커허브 인증용 크리덴셜
-                    docker.withRegistry('', 'DockerHub_Credential') {
-                        oDockImage.push()
-                    }
-                }
+                 withCredentials([usernamePassword(credentialsId: 'DockerHub_Credential', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) {
+                    bat """
+                        docker login -u %DOCKERHUB_USER% -p %DOCKERHUB_PASS%
+                        docker push ${strDockerImage}
+                    """
+        }
             }
         }        
         // 오라클 접속시 필요한 환경변수가 더 있을 수 있음. 
