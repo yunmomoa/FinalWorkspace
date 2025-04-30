@@ -47,7 +47,7 @@ pipeline {
             steps {
                withCredentials([sshUserPrivateKey(credentialsId: 'EC2_SSH_KEY', keyFileVariable: 'EC2_KEY')]) {
                     bat """
-                        ssh -i %EC2_KEY% -o StrictHostKeyChecking=no ec2-user@3.39.190.162 "docker container rm -f workly || true && docker run -d -p 8003:8003 --name=workly -e ORACLE_IP=3.39.190.162 -e ORACLE_PORT=1521 -e ORACLE_SID=XE -e ORACLE_USER=C##FINAL -e ORACLE_PASSWORD=final ${strDockerImage}"
+                        ssh -i %EC2_KEY% -o StrictHostKeyChecking=no ec2-user@15.164.170.23 "docker container rm -f workly || true && docker run -d -p 8003:8003 --name=workly -e ORACLE_IP=15.164.170.23 -e ORACLE_PORT=1521 -e ORACLE_SID=XE -e ORACLE_USER=C##FINAL -e ORACLE_PASSWORD=FINAL ${strDockerImage}"
                     """
                 }
             }
