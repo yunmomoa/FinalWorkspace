@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "strict": false,           // 엄격한 타입 체크 비활성화
     "noImplicitAny": false,    // 암시적인 any 허용
-    "noEmit": false,            // 타입 오류가 있어도 빌드 진행
+    "noEmit": true,            // 타입 오류가 있어도 빌드 진행
     "allowJs": true, // JS 파일을 포함
     "checkJs": false, // JS 문법 체크 비활성화
   },

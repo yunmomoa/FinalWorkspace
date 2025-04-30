@@ -1,8 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import Pagination from "../common/Pagination";
-import styles from './FormSelect.module.css';
-import search from '@/assets/images/icon/search.png';
-const FormSelect = () => {
-    return (_jsxs("div", { className: styles.formContainer, children: [_jsx("div", { className: styles.title, children: "\uACB0\uC7AC\uC591\uC2DD\uC870\uD68C" }), _jsx("div", { className: styles.searchContainer, children: _jsxs("div", { className: styles.search, children: [_jsx("input", { type: "text", className: styles.input, placeholder: "\uC591\uC2DD\uBA85 \uAC80\uC0C9" }), _jsx("button", { className: styles.searchButton, children: _jsx("img", { src: search, alt: 'search' }) })] }) }), _jsxs("table", { className: styles.table, children: [_jsx("thead", { children: _jsxs("tr", { className: styles.headerRow, children: [_jsx("th", { className: styles.thStyle, children: "No" }), _jsx("th", { className: styles.thStyle, children: "\uC591\uC2DD \uC81C\uBAA9" }), _jsx("th", { className: styles.thStyle, children: "\uAD6C\uBD84" })] }) }), _jsx("tbody", { children: Array.from({ length: 10 }).map((_, index) => (_jsxs("tr", { className: styles.rowStyle, children: [_jsx("td", { className: styles.tdStyle, children: index + 1 }), _jsx("td", { className: styles.tdStyle, children: "\uC624\uC804 \uC5F0\uCC28 \uC2E0\uCCAD\uC11C" }), _jsx("td", { className: styles.tdStyle, children: "\uC5F0\uCC28" })] }, index))) })] }), _jsx("div", { className: styles.buttonContainer, children: _jsx("button", { className: styles.button, children: "\uC591\uC2DD \uB4F1\uB85D" }) }), _jsx(Pagination, {})] }));
-};
-export default FormSelect;

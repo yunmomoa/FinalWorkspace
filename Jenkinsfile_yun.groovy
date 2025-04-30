@@ -7,7 +7,6 @@ pipeline {
     environment {
         strDockerTag = "${TODAY}_${BUILD_ID}"
         strDockerImage ="cysbunker/worklyproject:${strDockerTag}"
-        //strGitUrl = "https://github.com/wombathero999/semi.git"
         strGitUrl = "https://github.com/yunmomoa/FinalWorkspace.git"
     }
 

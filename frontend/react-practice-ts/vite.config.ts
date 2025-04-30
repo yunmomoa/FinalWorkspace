@@ -7,14 +7,6 @@ export default defineConfig({
   define: {
     global: 'globalThis', // global 변수를 globalThis로 설정 - 채팅 사용
   },
-  esbuild: {
-    tsconfigRaw: {
-      compilerOptions: {
-        noEmit: false, 
-        skipLibCheck: true
-      }
-    }
-  },
   resolve: {
     alias: {
       "@": "/src",
