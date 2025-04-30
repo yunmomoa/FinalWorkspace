@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 // 아이콘 이미지 import (경로는 실제 프로젝트에 맞게 수정)
-import speaker from "../../assets/Images/chat/loud-speaker 11.png";
-import profileDefault from "../../assets/Images/chat/profile.png";
+import speaker from "../../assets/images/chat/loud-speaker 11.png";
+import profileDefault from "../../assets/images/chat/profile.png";
 
 const backendHost = "192.168.130.8"; 
 

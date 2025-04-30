@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import search from "../../assets/Images/chat/search.png";
+import search from "../../assets/images/chat/search.png";
 import { Member } from "../../type/chatType";
 
 interface SearchClickProps {

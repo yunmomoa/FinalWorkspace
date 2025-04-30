@@ -1,4 +1,4 @@
-import chatPlus from "../../assets/Images/chat/chatplus.png";
+import chatPlus from "../../assets/images/chat/chatplus.png";
 //import ChatCreate from "./ChatCreate";
 
 

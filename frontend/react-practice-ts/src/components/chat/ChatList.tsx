@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { setChatRooms } from "../../features/chatSlice"; // ✅ Redux 저장 액션
 import { RootState } from "../../store";
 import axios from "axios";
-import chatPlus from "../../assets/Images/chat/chatplus.png";
-import profile from "../../assets/Images/chat/profile.png";
+import chatPlus from "../../assets/images/chat/chatplus.png";
+import profile from "../../assets/images/chat/profile.png";
 
 interface ChatRoom {
   chatRoomNo: number;

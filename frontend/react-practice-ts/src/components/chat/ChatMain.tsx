@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import profileIcon from "../../assets/Images/chat/profile.png";
-import totalprofileIcon from "../../assets/Images/chat/totalprofile.png";
-import starFullIcon from "../../assets/Images/chat/starFull.png";
-import star from "../../assets/Images/chat/star 62.png";
-import noticeIcon from "../../assets/Images/chat/loud-speaker 11.png";
+import profileIcon from "../../assets/images/chat/profile.png";
+import totalprofileIcon from "../../assets/images/chat/totalprofile.png";
+import starFullIcon from "../../assets/images/chat/starFull.png";
+import star from "../../assets/images/chat/star 62.png";
+import noticeIcon from "../../assets/images/chat/loud-speaker 11.png";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
@@ -149,7 +149,7 @@ const ChatMain: React.FC<ChatMainProps> = ({
   }, [user.userNo]);
 
   // 5) 프로필 이미지를 다시 불러오기 (선택사항)
-  const fetchProfileImages = async () => {
+  const fetchProfileimages = async () => {
     try {
       const updatedMembers = await Promise.all(
         members.map(async (member) => {
@@ -173,8 +173,8 @@ const ChatMain: React.FC<ChatMainProps> = ({
   };
 
   useEffect(() => {
-    // members.length가 바뀔 때만 fetchProfileImages를 실행할지 여부는 선택
-    fetchProfileImages();
+    // members.length가 바뀔 때만 fetchProfileimages를 실행할지 여부는 선택
+    fetchProfileimages();
   }, [members.length]);
 
   // 즐겨찾기, 팀원 목록 필터

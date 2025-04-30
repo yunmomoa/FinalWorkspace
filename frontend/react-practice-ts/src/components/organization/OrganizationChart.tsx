@@ -196,7 +196,7 @@ const OrganizationChart: React.FC = () => {
                 src={
                   selectedEmployee.profileImage
                     ? baseProfileUrl + selectedEmployee.profileImage
-                    : "/src/assets/Images/icon/profile.png"
+                    : "/src/assets/images/icon/profile.png"
                 }
                 alt="Profile"
                 className={styles.profileImage}

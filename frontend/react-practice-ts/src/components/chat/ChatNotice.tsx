@@ -1,5 +1,5 @@
 
-import notice from "../../assets/Images/chat/loud-speaker 11.png";
+import notice from "../../assets/images/chat/loud-speaker 11.png";
 
 const ChatNotice = () => {
   return (

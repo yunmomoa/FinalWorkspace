@@ -1,6 +1,6 @@
 import { useState } from "react";
-import profile from "../../assets/Images/chat/profile.png";
-import bell from "../../assets/Images/chat/bell.png";
+import profile from "../../assets/images/chat/profile.png";
+import bell from "../../assets/images/chat/bell.png";
 
 interface ChatRoom {
   chatRoomNo: number;

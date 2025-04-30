@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import searchIcon from "../../assets/Images/chat/search.png";
+import searchIcon from "../../assets/images/chat/search.png";
 import OrgMemberPlus from './OrgMemberPlus';
 import { Member, Department } from '../../type/chatType';
 

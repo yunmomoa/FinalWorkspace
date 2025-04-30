@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import profileBig from "../../assets/Images/chat/profileBig.png";
-import chatBig from "../../assets/Images/chat/chatBig.png";
-import bell from "../../assets/Images/chat/bell.png";
-import starBig from "../../assets/Images/chat/starBig.png";
+import profileBig from "../../assets/images/chat/profileBig.png";
+import chatBig from "../../assets/images/chat/chatBig.png";
+import bell from "../../assets/images/chat/bell.png";
+import starBig from "../../assets/images/chat/starBig.png";
 import { defaultMember } from "../../type/chatType";
 
 interface Member {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
-import profileIcon from "../../assets/Images/chat/profile.png";
-import totalprofileIcon from "../../assets/Images/chat/totalprofile.png";
-import dropdownIcon from "../../assets/Images/chat/dropdown2.png";
-import plusIcon from "../../assets/Images/chat/Plus circle.png";
+import profileIcon from "../../assets/images/chat/profile.png";
+import totalprofileIcon from "../../assets/images/chat/totalprofile.png";
+import dropdownIcon from "../../assets/images/chat/dropdown2.png";
+import plusIcon from "../../assets/images/chat/Plus circle.png";
 import SearchClick from "./SearchClick";
 import { Member } from "../../type/chatType"; // 멤버 타입이 별도로 있을 경우
 

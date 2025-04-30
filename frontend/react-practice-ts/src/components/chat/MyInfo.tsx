@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import profileBig from "../../assets/Images/chat/profileBig.png";
-import chatBig from "../../assets/Images/chat/chatBig.png";
-import edit from "../../assets/Images/chat/edit.png";
+import profileBig from "../../assets/images/chat/profileBig.png";
+import chatBig from "../../assets/images/chat/chatBig.png";
+import edit from "../../assets/images/chat/edit.png";
 import axios from "axios";
 
 type MyInfo = {
