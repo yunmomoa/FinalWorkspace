@@ -33,7 +33,7 @@ const Login = () => {
             removeCookie("rememberId");
         }
 
-        axios.post(`${import.meta.env.VITE_API_URL}workly/login`, {
+        axios.post(`${import.meta.env.VITE_API_URL}/workly/login`, {
             userNo: userNoAsInt,
             userPwd
         })
