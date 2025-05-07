@@ -51,13 +51,16 @@ const Login = () => {
                 console.log("localStorage 확인: ", localStorage.getItem("user"));
                 navigate("/main", {replace: true});
             }).catch((error) => {
-                
-                console.log(error.response.data);
-                const failCount = error.response.data.failCount;
-                if(failCount < 5) {
-                    alert(`${error.response.data.msg} [${failCount}/5]`);
+                if (error.response) {
+                    const failCount = error.response.data.failCount;
+                    if(failCount < 5) {
+                        alert(`${error.response.data.msg} [${failCount}/5]`);
+                    } else {
+                        alert(error.response.data.msg);
+                    }
                 } else {
-                    alert(error.response.data.msg);
+                    console.error("서버 응답 없음 또는 알 수 없는 에러:", error);
+                    alert("서버와 연결할 수 없습니다. 관리자에게 문의하세요.");
                 }
             }).finally(() => setUserPwd(''))
     }

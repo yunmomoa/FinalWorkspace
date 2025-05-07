@@ -85,7 +85,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        {/* <Route element={<RoleRoute roles={['ROLE_HR', 'ROLE_USER']} />}> */}
+        <Route element={<RoleRoute roles={['ROLE_HR', 'ROLE_USER']} />}>
           <Route path="/main" element={<MainPage />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/OrganizationChart" element={<OrganizationChartPage />} />
@@ -120,9 +120,9 @@ function App() {
             <Route index element={<MyInfomation />} />
             <Route path="salary" element={<></>} />
           </Route>
-        {/* </Route> */}
+        </Route>
 
-        {/* <Route element={<RoleRoute roles={['ROLE_HR']} />}> */}
+        <Route element={<RoleRoute roles={['ROLE_HR']} />}>
           <Route path="/personnel" element={<PersonnelMain />}>
             <Route index element={<PersonnelTable />} />
             <Route path="createEmployee" element={<CreateEmployee />} />
@@ -130,7 +130,7 @@ function App() {
             <Route path=":userNo" element={<PersonnelDetail />} />
           </Route>
           <Route path="/AdminPolicyManagerPage" element={<AdminPolicyManagerPage />} />
-        {/* </Route> */}
+        </Route>
 
         <Route path="/leave" element={<LeaveMain />}>
           <Route element={<RoleRoute roles={["ROLE_HR", "ROLE_USER"]} />}>
